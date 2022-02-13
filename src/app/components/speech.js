@@ -10,7 +10,7 @@ import "./style.css";
 
 export default function CompontensAPP() {
   const [text, setText] = useState(null);
-  const [number, setNumber] = useState(null);
+  const [number, setNumber] = useState(0);
   // const [value, setValue] = useState("");
   const [repetition, setRepetition] = useState(null);
   const [rate, setRate] = useState(0.9);
@@ -21,6 +21,18 @@ export default function CompontensAPP() {
     name: "Microsoft Daniel - Portuguese (Brazil)",
     voiceURI: "Microsoft Daniel - Portuguese (Brazil)",
   });
+  const m = new SpeechSynthesisUtterance("teste");
+
+  const aa = [{ name: "texte 1" }, { name: "texte 2" }, { name: "texte 3" }];
+
+  const fm = () => {
+    aa.forEach(async (element, index) => {
+      await window.speechSynthesis.speak(m);
+      await setNumber(index);
+    });
+  };
+
+  console.log("number", number);
 
   const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
     onResult: (result) => {
@@ -161,6 +173,8 @@ export default function CompontensAPP() {
           }}
         />
       </div>
+
+      <button onClick={fm}>TESTE</button>
     </div>
   );
 }
