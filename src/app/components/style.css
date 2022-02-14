@@ -138,6 +138,6 @@ select {
   margin: 5px;
 }
 
-input.range {
-  accent-color: #8ce196;
-}
+/* input.range {
+  /* accent-color: #8ce196; 
+} */

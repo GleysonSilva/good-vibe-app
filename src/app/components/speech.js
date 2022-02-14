@@ -11,7 +11,6 @@ import "./style.css";
 export default function CompontensAPP() {
   const [text, setText] = useState(null);
   const [number, setNumber] = useState(0);
-  // const [value, setValue] = useState("");
   const [repetition, setRepetition] = useState(null);
   const [rate, setRate] = useState(0.9);
   const [voiceIndex, setVoiceIndex] = useState({
@@ -32,11 +31,8 @@ export default function CompontensAPP() {
     });
   };
 
-  // console.log("number", number);
-
   const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
     onResult: (result) => {
-      // console.log("number", number);
       setNumber(number + 1);
     },
   });
@@ -44,7 +40,6 @@ export default function CompontensAPP() {
 
   const handleText = async (_) => {
     for (let index = 0; index < repetition; index++) {
-      // await setNumber(index);
       await speak({
         text: text,
         speaking: !speaking,
@@ -52,32 +47,7 @@ export default function CompontensAPP() {
         voice,
       });
     }
-    // array.forEach((element) => {
-    //   speak({ text: element.text, speaking: element.speaking });
-    // });
   };
-  // const setSpeak = async (_) => {
-  //   let a = await speak({
-  //     text: text,
-  //     speaking: !speaking,
-  //   });
-  //   console.log("a", a);
-  //   return;
-  // };
-
-  // const handleText = async (_) => {
-  //   console.log("Start");
-
-  //   for (let index = 0; index < repetition; index++) {
-  //     await setTimeout(async () => {
-  //       await setSpeak();
-  //       await console.log("index", index);
-  //       // await setNumber(number + 1);
-  //     }, 1000);
-  //   }
-
-  //   console.log("End");
-  // };
 
   return (
     <div className="p-3">
@@ -173,12 +143,6 @@ export default function CompontensAPP() {
           }}
         />
       </div>
-
-      <button onClick={fm}>TESTE</button>
     </div>
   );
 }
-
-// https://mikeyparton.github.io/react-speech-kit/
-// https://github.com/MikeyParton/react-speech-kit/blob/master/examples/src/useSpeechSynthesis.jsx
-// https://codepen.io/anyssa/pen/PoNBMxJ

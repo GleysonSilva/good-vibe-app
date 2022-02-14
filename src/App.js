@@ -17,12 +17,9 @@ function App() {
   });
   const [check, setcheck] = useState(true);
 
-  // let theme = createMuiTheme();
   return (
-    // <ThemeProvider theme={theme}>
     <div className="App" theme={theme}>
       <header className="App-header">
-        {/* <div className="col-12 col-sm-12 col-md-5 card"> */}
         <div class="switch__container">
           <input
             id="switch-flat"
@@ -41,15 +38,8 @@ function App() {
             GleeysonSilva
           </a>
         </div>
-        {/* </div> */}
       </header>
-      {/* <main></main>
-        <footer
-          style={{ color: "#fff", fontSize: "10px" }}
-          className="footer-text"
-        ></footer> */}
     </div>
-    // </ThemeProvider>
   );
 }
 

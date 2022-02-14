@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Number() {
   const [number, setnumber] = useState(0);
   const [open, setopen] = useState(false);
+  const [text, setText] = useState("");
 
   const handleSum = () => {
     if (number !== 120) setnumber(number + 1);
@@ -15,9 +16,7 @@ export default function Number() {
 
     setopen(!open);
   };
-  const m = new SpeechSynthesisUtterance(
-    "Meu emprego bem remunerado e abençoado, sinto muito, me perdoe. Eu te amo e sou grato."
-  );
+  const m = new SpeechSynthesisUtterance(text);
 
   const handleSubtract = () => {
     if (number !== 0) setnumber(number - 1);
@@ -50,17 +49,22 @@ export default function Number() {
           {number}
         </span>
       )}
+
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Texto.."
+        rows={4}
+        value={text}
+        onChange={(event) => {
+          setText(event.target.value);
+        }}
+      />
       <div className="col-12 d-flex justify-content-center ">
         <button className="button" onClick={handleSubtract}>
           <FontAwesomeIcon icon={faMinus} />
         </button>
-        {/* <button className="button" onClick={handleSum}>
-          +
-        </button> */}
       </div>
     </div>
   );
 }
-
-// https://alvarotrigo.com/blog/best-css-button-hover-effects/
-// https://animista.net/play/basic/flip/flip-vertical-left
