@@ -32,7 +32,7 @@ export default function CompontensAPP() {
     });
   };
 
-  console.log("number", number);
+  // console.log("number", number);
 
   const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
     onResult: (result) => {

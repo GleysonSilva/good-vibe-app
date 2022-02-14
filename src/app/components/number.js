@@ -11,8 +11,13 @@ export default function Number() {
 
   const handleSum = () => {
     if (number !== 120) setnumber(number + 1);
+    window.speechSynthesis.speak(m);
+
     setopen(!open);
   };
+  const m = new SpeechSynthesisUtterance(
+    "Meu emprego bem remunerado e abençoado, sinto muito, me perdoe. Eu te amo e sou grato."
+  );
 
   const handleSubtract = () => {
     if (number !== 0) setnumber(number - 1);
