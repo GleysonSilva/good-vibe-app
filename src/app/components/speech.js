@@ -27,7 +27,6 @@ export default function CompontensAPP() {
   var audio = new Audio(audioB);
   audio.volume = "0.07";
 
-  console.log("audio", audio);
   const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
     onResult: (result) => {
       setNumber(number + 1);
