@@ -2,35 +2,32 @@ import React, { useState, useEffect } from "react";
 import { useSpeechSynthesis } from "react-speech-kit";
 
 //import icon
-import { faStop, faPlay, faEraser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStop,
+  faPlay,
+  faEraser,
+  faVolumeLow,
+  faVolumeHigh,
+  faVolumeUp,
+  faVolumeXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import audioB from "../audio/soothing-breeze.mp3";
 
 //import styles
 import "./style.css";
 
 export default function CompontensAPP() {
   const [text, setText] = useState(null);
+  const [rate, setRate] = useState(0.9);
   const [number, setNumber] = useState(0);
   const [repetition, setRepetition] = useState(null);
-  const [rate, setRate] = useState(0.9);
-  const [voiceIndex, setVoiceIndex] = useState({
-    default: true,
-    lang: "pt-BR",
-    localService: true,
-    name: "Microsoft Daniel - Portuguese (Brazil)",
-    voiceURI: "Microsoft Daniel - Portuguese (Brazil)",
-  });
-  const m = new SpeechSynthesisUtterance("teste");
+  const [voiceIndex, setVoiceIndex] = useState("0");
+  const [audioBackground, setAudioBackground] = useState(false);
+  var audio = new Audio(audioB);
+  audio.volume = "0.07";
 
-  const aa = [{ name: "texte 1" }, { name: "texte 2" }, { name: "texte 3" }];
-
-  const fm = () => {
-    aa.forEach(async (element, index) => {
-      await window.speechSynthesis.speak(m);
-      await setNumber(index);
-    });
-  };
-
+  console.log("audio", audio);
   const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
     onResult: (result) => {
       setNumber(number + 1);
@@ -49,6 +46,23 @@ export default function CompontensAPP() {
     }
   };
 
+  var a;
+  const chargebattery = () => {
+    setTimeout(function () {
+      return <FontAwesomeIcon icon={faVolumeLow} color="#8ce196" size="2x" />;
+    }, 1000);
+    setTimeout(function () {
+      return <FontAwesomeIcon icon={faVolumeHigh} color="#8ce196" size="2x" />;
+    }, 2000);
+    setTimeout(function () {
+      return <FontAwesomeIcon icon={faVolumeHigh} color="#8ce196" size="2x" />;
+    }, 3000);
+    // setTimeout(function () {
+    //   a.innerHTML = "&#xf240;";
+    // }, 4000);
+  };
+  useEffect(() => {}, []);
+
   return (
     <div className="p-3">
       <div className="row">
@@ -56,10 +70,11 @@ export default function CompontensAPP() {
           <p className="title-text"> {text}</p>
         </div>
       </div>
+
       <p>Repedições: {number}</p>
       <div className="col-12 d-flex justify-content-center align-items-end">
-        <div className="col-6">
-          <span className="">{rate}</span>
+        <div className="col-4">
+          <span>{rate}</span>
           <input
             className="range"
             type="range"
@@ -73,7 +88,36 @@ export default function CompontensAPP() {
             }}
           />
         </div>
-        <div className="col-6">
+        <div className="col-4 align-items-center">
+          <div>
+            <span>musica fundo</span>
+          </div>
+
+          <div>
+            {audioBackground ? (
+              <FontAwesomeIcon
+                icon={faVolumeUp}
+                color="#8ce196"
+                size="1x"
+                onClick={() => {
+                  audio.pause();
+                  setAudioBackground(!audioBackground);
+                }}
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faVolumeXmark}
+                color="#778297"
+                size="1x"
+                onClick={() => {
+                  setAudioBackground(!audioBackground);
+                  audio.play();
+                }}
+              />
+            )}
+          </div>
+        </div>
+        <div className="col-4">
           <input
             type="number"
             name="repetition"
@@ -84,23 +128,27 @@ export default function CompontensAPP() {
           />
         </div>
       </div>
-      <div className="col-12 d-flex justify-content-center">
-        <select
-          id="voice"
-          name="voice"
-          value={voiceIndex || ""}
-          onChange={(event) => {
-            setVoiceIndex(event.target.value);
-          }}
-        >
-          <option value="">Default</option>
-          {voices.map((option, index) => (
-            <option key={option.voiceURI} value={index}>
-              {`${option.lang} - ${option.name}`}
-            </option>
-          ))}
-        </select>
+      <div className="col-12 d-flex">
+        {/* <div className="col-6 d-flex justify-content-center"></div> */}
+        <div className="col-12 d-flex justify-content-center pr-0 pl-0">
+          <select
+            id="voice"
+            name="voice"
+            value={voiceIndex || ""}
+            onChange={(event) => {
+              setVoiceIndex(event.target.value);
+            }}
+          >
+            <option value="">Default</option>
+            {voices.map((option, index) => (
+              <option key={option.voiceURI} value={index}>
+                {`${option.lang} - ${option.name}`}
+              </option>
+            ))}
+          </select>
+        </div>{" "}
       </div>
+
       <div className="col-12 d-flex justify-content-center">
         <textarea
           id="message"
@@ -121,7 +169,10 @@ export default function CompontensAPP() {
               icon={faStop}
               color="#ed9d9d"
               size="2x"
-              onClick={cancel}
+              onClick={() => {
+                cancel();
+                audio.pause();
+              }}
             />
             <FontAwesomeIcon
               className="icon"

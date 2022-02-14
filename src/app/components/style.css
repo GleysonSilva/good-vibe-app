@@ -136,8 +136,9 @@ select {
   text-align: center;
   padding: 10px;
   margin: 5px;
+  width: inherit;
 }
 
-/* input.range {
-  /* accent-color: #8ce196; 
-} */
+input.range {
+  accent-color: #8ce196;
+}
