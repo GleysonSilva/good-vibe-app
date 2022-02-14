@@ -11,10 +11,11 @@ export default function Number() {
   const [text, setText] = useState("");
 
   const handleSum = () => {
-    if (number !== 120) setnumber(number + 1);
-    window.speechSynthesis.speak(m);
-
-    setopen(!open);
+    if (number !== 120) {
+      setnumber(number + 1);
+      window.speechSynthesis.speak(m);
+      setopen(!open);
+    }
   };
   const m = new SpeechSynthesisUtterance(text);
 
