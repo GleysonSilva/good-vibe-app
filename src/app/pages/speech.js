@@ -8,8 +8,6 @@ import {
   faEraser,
   faVolumeLow,
   faVolumeHigh,
-  faVolumeUp,
-  faVolumeXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "../components/CardMusic";
@@ -62,12 +60,6 @@ export default function CompontensAPP() {
 
   return (
     <div className="">
-      <div className="row">
-        <div className="col-12">
-          <p className="title-text"> {text}</p>
-        </div>
-      </div>
-
       <div className="col-12">
         <Card />
       </div>
