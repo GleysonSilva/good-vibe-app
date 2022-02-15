@@ -48,6 +48,13 @@ button {
   font-size: calc(10px + 2vmin);
 }
 
+h5 {
+  color: #fff;
+}
+
+h3 {
+  color: #fff;
+}
 .card {
   backdrop-filter: blur(8px) saturate(171%);
   -webkit-backdrop-filter: blur(8px) saturate(171%);

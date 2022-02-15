@@ -25,7 +25,40 @@ export default function CardMusic() {
   var audio = new Audio(audioB);
   audio.volume = "0.08";
   return (
-    <div className={`row ${classes.root} justify-content-center`}>
+    <div className={`row ${classes.root} justify-content-start`}>
+      <Card className="col-6 m-0 p-0 card-music">
+        <div className="col-12 background-color" />
+        <div className="col-12 d-flex justify-content-between card-play">
+          <div className="card-title-music">
+            <span className="title-music">Soothing Breeze</span>
+            <span className="sub-title-music">BASS</span>
+          </div>
+          <div className="m-2">
+            <IconButton aria-label="play/pause" className="p-0">
+              <FontAwesomeIcon
+                className="icon"
+                icon={faCirclePlay}
+                color="#8ce196"
+                size="1x"
+                onClick={() => {
+                  audio.play();
+                }}
+              />
+            </IconButton>
+            <IconButton aria-label="play/pause" className="ml-2 p-0">
+              <FontAwesomeIcon
+                className="icon"
+                icon={faCirclePause}
+                color=""
+                size="1x"
+                onClick={() => {
+                  audio.pause();
+                }}
+              />{" "}
+            </IconButton>
+          </div>
+        </div>
+      </Card>
       <Card className="col-6 m-0 p-0 card-music">
         <div className="col-12 background-color" />
         <div className="col-12 d-flex justify-content-between card-play">

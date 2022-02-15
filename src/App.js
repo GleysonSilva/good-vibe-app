@@ -37,7 +37,10 @@ function App() {
         {check ? <Speech /> : <Number />}
       </header> */}
 
-        <main>{check ? <Speech /> : <Number />}</main>
+        <main>
+          <h3> Boa noite</h3>
+          {check ? <Speech /> : <Number />}
+        </main>
         <footer
           style={{ color: "#fff", fontSize: "10px" }}
           className="footer-text"

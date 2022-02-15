@@ -61,9 +61,11 @@ export default function CompontensAPP() {
   return (
     <div className="">
       <div className="col-12">
+        <div className="row">
+          <h5>Musica Fundo</h5>
+        </div>
         <Card />
       </div>
-
       <p>Repedições: {number}</p>
       <div className="col-12 d-flex justify-content-center align-items-end">
         <div className="col-6">
@@ -113,7 +115,6 @@ export default function CompontensAPP() {
           </select>
         </div>{" "}
       </div>
-
       <div className="col-12 d-flex justify-content-center">
         <textarea
           id="message"
