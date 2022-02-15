@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
 .background-color {
   height: 65%;
   background: url("../assets/fundo-music-1.jpg") no-repeat center center;
@@ -20,11 +22,12 @@
 
 .title-music {
   color: #fff;
+  font-family: "Montserrat", sans-serif;
   font-size: 12px;
 }
 
 .sub-title-music {
-  color: #fff;
+  color: #697385;
 }
 
 .card-title-music {
