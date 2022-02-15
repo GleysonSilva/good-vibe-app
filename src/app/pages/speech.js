@@ -12,7 +12,7 @@ import {
   faVolumeXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import audioB from "../audio/soothing-breeze.mp3";
+import Card from "../components/CardMusic";
 
 //import styles
 import "./style.css";
@@ -24,8 +24,6 @@ export default function CompontensAPP() {
   const [repetition, setRepetition] = useState(null);
   const [voiceIndex, setVoiceIndex] = useState("0");
   const [audioBackground, setAudioBackground] = useState(false);
-  var audio = new Audio(audioB);
-  audio.volume = "0.07";
 
   const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
     onResult: (result) => {
@@ -63,16 +61,20 @@ export default function CompontensAPP() {
   useEffect(() => {}, []);
 
   return (
-    <div className="p-3">
+    <div className="">
       <div className="row">
         <div className="col-12">
           <p className="title-text"> {text}</p>
         </div>
       </div>
 
+      <div className="col-12">
+        <Card />
+      </div>
+
       <p>Repedições: {number}</p>
       <div className="col-12 d-flex justify-content-center align-items-end">
-        <div className="col-4">
+        <div className="col-6">
           <span>{rate}</span>
           <input
             className="range"
@@ -87,36 +89,8 @@ export default function CompontensAPP() {
             }}
           />
         </div>
-        <div className="col-4 align-items-center">
-          <div>
-            <span>musica fundo</span>
-          </div>
 
-          <div>
-            {audioBackground ? (
-              <FontAwesomeIcon
-                icon={faVolumeUp}
-                color="#8ce196"
-                size="1x"
-                onClick={() => {
-                  audio.pause();
-                  setAudioBackground(!audioBackground);
-                }}
-              />
-            ) : (
-              <FontAwesomeIcon
-                icon={faVolumeXmark}
-                color="#778297"
-                size="1x"
-                onClick={() => {
-                  setAudioBackground(!audioBackground);
-                  audio.play();
-                }}
-              />
-            )}
-          </div>
-        </div>
-        <div className="col-4">
+        <div className="col-6">
           <input
             type="number"
             name="repetition"
@@ -170,7 +144,6 @@ export default function CompontensAPP() {
               size="2x"
               onClick={() => {
                 cancel();
-                audio.pause();
               }}
             />
             <FontAwesomeIcon

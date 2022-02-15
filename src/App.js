@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 import { createMuiTheme } from "@material-ui/core/styles";
-import Speech from "./app/components/speech";
-import Number from "./app/components/number";
+import Speech from "./app/pages/speech";
+import Number from "./app/pages/number";
+import { ThemeProvider } from "@material-ui/styles";
 
 function App() {
   const theme = createMuiTheme({
@@ -18,8 +19,11 @@ function App() {
   const [check, setcheck] = useState(true);
 
   return (
-    <div className="App" theme={theme}>
-      <header className="App-header">
+    <ThemeProvider theme={theme}>
+      <div className="App" theme={theme}>
+        <header className="App-header">{/* <Sidenav /> */}</header>
+
+        {/* <header className="App-header">
         <div class="switch__container">
           <input
             id="switch-flat"
@@ -31,15 +35,22 @@ function App() {
           <label for="switch-flat"></label>
         </div>
         {check ? <Speech /> : <Number />}
-        <div>
-          developer 🔥
-          {/* <FavoriteIcon style={{ color: "red" }} fontSize="small" />{" "} */}
-          <a href="https://www.instagram.com/gleeysonsilva/" className="">
-            GleeysonSilva
-          </a>
-        </div>
-      </header>
-    </div>
+      </header> */}
+
+        <main>{check ? <Speech /> : <Number />}</main>
+        <footer
+          style={{ color: "#fff", fontSize: "10px" }}
+          className="footer-text"
+        >
+          <div>
+            developer 🔥
+            <a href="https://www.instagram.com/gleeysonsilva/" className="">
+              GleeysonSilva
+            </a>
+          </div>
+        </footer>
+      </div>
+    </ThemeProvider>
   );
 }
 
