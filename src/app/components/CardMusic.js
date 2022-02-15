@@ -14,7 +14,7 @@ const useStyles = makeStyles({
       borderRadius: "13px",
     },
     "& .MuiPaper-root": {
-      backgroundColor: "#3e444f",
+      backgroundColor: "#323437",
     },
   },
 });

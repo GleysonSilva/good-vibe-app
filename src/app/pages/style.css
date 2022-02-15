@@ -97,10 +97,10 @@
 
 input {
   display: flex;
-  background: #3e444f;
+  background: #323437;
   color: #fff;
   border-radius: 7px;
-  border: 1px solid #3e444f;
+  border: 1px solid #323437;
   text-align-last: center;
   margin: 5px;
   width: inherit;
@@ -119,17 +119,17 @@ select:focus {
 
 textarea {
   display: flex;
-  background: #3e444f;
+  background: #323437;
   color: #fff;
   border-radius: 16px;
-  border: 1px solid #3e444f;
+  border: 1px solid #323437;
   text-align-last: center;
   margin: 5px;
   width: 100%;
 }
 
 select {
-  background: #3e444f;
+  background: #323437;
   border-radius: 12px;
   border: none;
   color: #fff;
