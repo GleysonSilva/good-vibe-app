@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "../components/CardMusic";
-import CardText from "@material-ui/core/Card";
+// import CardText from "@material-ui/core/Card";
 
 //import styles
 import "./style.css";
@@ -73,9 +73,8 @@ export default function CompontensAPP() {
       </div>
 
       <Card />
-      {/* <p>Repedições: {number}</p> */}
-
-      {/* <div className="row my-3">
+      {/* <p>Repedições: {number}</p> 
+       <div className="row my-3">
         <h5>Gravador</h5>
       </div>
 
