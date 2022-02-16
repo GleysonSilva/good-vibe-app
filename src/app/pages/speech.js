@@ -75,7 +75,7 @@ export default function CompontensAPP() {
       <Card />
       {/* <p>Repedições: {number}</p> */}
 
-      <div className="row my-3">
+      {/* <div className="row my-3">
         <h5>Gravador</h5>
       </div>
 
@@ -89,9 +89,9 @@ export default function CompontensAPP() {
           <div id="dentro"></div>
         </div>
 
-        {/* <button className=""></button> */}
+        {/* <button className=""></button> 
         {listening && <div>Go ahead I'm listening</div>}
-      </div>
+      </div> */}
       <div className="row my-3">
         <h5>Atividades</h5>
       </div>
