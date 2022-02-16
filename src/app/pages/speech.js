@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSpeechSynthesis } from "react-speech-kit";
+import { useSpeechSynthesis, useSpeechRecognition } from "react-speech-kit";
 
 //import icon
 import {
@@ -8,9 +8,11 @@ import {
   faEraser,
   faVolumeLow,
   faVolumeHigh,
+  faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "../components/CardMusic";
+import CardText from "@material-ui/core/Card";
 
 //import styles
 import "./style.css";
@@ -21,19 +23,25 @@ export default function CompontensAPP() {
   const [number, setNumber] = useState(0);
   const [repetition, setRepetition] = useState(null);
   const [voiceIndex, setVoiceIndex] = useState("0");
-  const [audioBackground, setAudioBackground] = useState(false);
+  const [value, setValue] = useState("");
 
   const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
     onResult: (result) => {
       setNumber(number + 1);
     },
   });
+  const { listen, listening, stop } = useSpeechRecognition({
+    onResult: (result) => {
+      setValue(result);
+    },
+  });
+
   const voice = voices[voiceIndex] || null;
 
   const handleText = async (_) => {
     for (let index = 0; index < repetition; index++) {
       await speak({
-        text: text,
+        text: text ? text : value,
         speaking: !speaking,
         rate,
         voice,
@@ -59,15 +67,31 @@ export default function CompontensAPP() {
   useEffect(() => {}, []);
 
   return (
-    <div className="col-12">
-      <div className="col-12">
-        <div className="row">
-          <h5>Musica Fundo</h5>
-        </div>
-        <Card />
+    <div className="col-12 col-md-6 card-center">
+      <div className="row my-3">
+        <h5>Musica Fundo</h5>
       </div>
-      <p>Repedições: {number}</p>
-      <div className="col-12 d-flex justify-content-center align-items-end">
+
+      <Card />
+      {/* <p>Repedições: {number}</p> */}
+
+      <div className="row my-3">
+        <h5>Gravador</h5>
+      </div>
+      <div>
+        <textarea
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+        />
+        <button onMouseDown={listen} onMouseUp={stop}>
+          🎤
+        </button>
+        {listening && <div>Go ahead I'm listening</div>}
+      </div>
+      <div className="row my-3">
+        <h5>Atividades</h5>
+      </div>
+      <div className="row">
         <div className="col-6">
           <span>{rate}</span>
           <input
@@ -83,7 +107,6 @@ export default function CompontensAPP() {
             }}
           />
         </div>
-
         <div className="col-6">
           <input
             type="number"
@@ -94,8 +117,6 @@ export default function CompontensAPP() {
             onChange={(e) => setRepetition(e.target.value)}
           />
         </div>
-      </div>
-      <div className="col-12 d-flex">
         {/* <div className="col-6 d-flex justify-content-center"></div> */}
         <div className="col-12 d-flex justify-content-center pr-0 pl-0">
           <select
@@ -114,8 +135,7 @@ export default function CompontensAPP() {
             ))}
           </select>
         </div>{" "}
-      </div>
-      <div className="col-12 d-flex justify-content-center">
+        {/* <CardText className="col-6 mr-2 p-0 card-music"></CardText> */}
         <textarea
           id="message"
           name="message"
@@ -127,8 +147,9 @@ export default function CompontensAPP() {
           }}
         />
       </div>
+
       <div className="col-12 mt-3 d-flex justify-content-around">
-        {text && repetition && repetition !== 0 && (
+        {repetition && repetition !== 0 && (
           <>
             <FontAwesomeIcon
               className="icon"

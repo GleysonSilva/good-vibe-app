@@ -143,6 +143,6 @@ input.range {
   accent-color: #8ce196;
 }
 
-span {
-  color: "#fff";
+.card-center {
+  display: inline-table;
 }
