@@ -146,3 +146,26 @@ input.range {
 .card-center {
   display: inline-table;
 }
+
+#dentro {
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 200px;
+  animation: pulse 1600ms infinite;
+}
+
+#fora {
+  width: 30px;
+  border-radius: 200px;
+  padding: 15px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: #000000 0 0 0 0;
+  }
+  100% {
+    box-shadow: red 0 0 0 16px;
+  }
+}

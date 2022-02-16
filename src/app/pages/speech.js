@@ -78,14 +78,18 @@ export default function CompontensAPP() {
       <div className="row my-3">
         <h5>Gravador</h5>
       </div>
-      <div>
+
+      <div className="row justify-content-center">
         <textarea
           value={value}
           onChange={(event) => setValue(event.target.value)}
         />
-        <button onMouseDown={listen} onMouseUp={stop}>
-          🎤
-        </button>
+
+        <div id="fora" onMouseDown={listen} onMouseUp={stop}>
+          <div id="dentro"></div>
+        </div>
+
+        {/* <button className=""></button> */}
         {listening && <div>Go ahead I'm listening</div>}
       </div>
       <div className="row my-3">
