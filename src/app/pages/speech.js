@@ -59,7 +59,7 @@ export default function CompontensAPP() {
   useEffect(() => {}, []);
 
   return (
-    <div className="">
+    <div className="col-12">
       <div className="col-12">
         <div className="row">
           <h5>Musica Fundo</h5>
