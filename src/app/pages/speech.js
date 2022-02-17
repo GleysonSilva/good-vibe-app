@@ -17,7 +17,7 @@ import Card from "../components/CardMusic";
 //import styles
 import "./style.css";
 
-export default function CompontensAPP() {
+export default function CompontensAPP({ check, onCheck }) {
   const [text, setText] = useState(null);
   const [rate, setRate] = useState(0.9);
   const [number, setNumber] = useState(0);
@@ -68,6 +68,14 @@ export default function CompontensAPP() {
 
   return (
     <div className="col-12 col-md-6 card-center">
+      <input
+        id="switch-flat"
+        // type="checkbox"
+        className="input-view"
+        value={check}
+        onClick={(e) => onCheck(!check)}
+      />
+
       <div className="row my-3">
         <h5>Musica Fundo</h5>
       </div>

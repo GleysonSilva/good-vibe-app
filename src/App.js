@@ -39,10 +39,15 @@ function App() {
 
         <main>
           <h3> Boa noite</h3>
-          {check ? <Speech /> : <Number />}
+
+          {check ? (
+            <Speech check={check} onCheck={(value) => setcheck(value)} />
+          ) : (
+            <Number check={check} onCheck={(value) => setcheck(value)} />
+          )}
         </main>
         <footer
-          style={{ color: "#fff", fontSize: "10px" }}
+          style={{ color: "#fff", fontSize: "12px" }}
           className="footer-text"
         >
           <div>

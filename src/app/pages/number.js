@@ -5,7 +5,7 @@ import "./style.css";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Number() {
+export default function Number({ check, onCheck }) {
   const [number, setnumber] = useState(0);
   const [open, setopen] = useState(false);
   const [text, setText] = useState("");
@@ -24,7 +24,16 @@ export default function Number() {
   };
 
   return (
-    <div className="row">
+    <div className="row justify-content-center">
+      <div className="col-12 col-md-6 card-center">
+        <input
+          id="switch-flat"
+          // type="checkbox"
+          className="input-view"
+          value={check}
+          onClick={(e) => onCheck(!check)}
+        />
+      </div>
       {number % 2 === 0 ? (
         <span
           id="title"
@@ -51,7 +60,7 @@ export default function Number() {
         </span>
       )}
 
-      <textarea
+      {/* <textarea
         id="message"
         name="message"
         placeholder="Texto.."
@@ -60,7 +69,7 @@ export default function Number() {
         onChange={(event) => {
           setText(event.target.value);
         }}
-      />
+      /> */}
       <div className="col-12 d-flex justify-content-center ">
         <button className="button" onClick={handleSubtract}>
           <FontAwesomeIcon icon={faMinus} />

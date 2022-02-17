@@ -60,6 +60,7 @@ h5 {
 
 h3 {
   color: #fff;
+  padding-top: 20px;
 }
 .card {
   backdrop-filter: blur(8px) saturate(171%);
