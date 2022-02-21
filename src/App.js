@@ -4,6 +4,11 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import Speech from "./app/pages/speech";
 import Number from "./app/pages/number";
 import { ThemeProvider } from "@material-ui/styles";
+import Card from "./app/components/CardMusic";
+
+//import icon
+import { faVolumeHigh, faList } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
   const theme = createMuiTheme({
@@ -39,12 +44,22 @@ function App() {
 
         <main>
           <h3> Boa noite</h3>
-
-          {check ? (
-            <Speech check={check} onCheck={(value) => setcheck(value)} />
-          ) : (
-            <Number check={check} onCheck={(value) => setcheck(value)} />
-          )}
+          <div className="col-12 col-md-6 card-center">
+            <div className="row my-3">
+              <h5>Musica Fundo</h5>
+            </div>
+            <Card />
+          </div>{" "}
+          <div className="col-12 col-md-6 card-center">
+            <button className="button-view" onClick={() => setcheck(!check)}>
+              <FontAwesomeIcon
+                icon={!check ? faList : faVolumeHigh}
+                color="#7e7a80"
+                size="1x"
+              />
+            </button>
+          </div>
+          <div className="col-12">{check ? <Speech /> : <Number />}</div>
         </main>
         <footer
           style={{ color: "#fff", fontSize: "12px" }}

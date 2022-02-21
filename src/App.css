@@ -165,3 +165,20 @@ h3 {
   margin-left: 60px;
   background-color: #8ce196;
 }
+
+.button-view {
+  padding: 3px;
+  border: 1px solid #595959;
+  background: #323437;
+  border-radius: 8px;
+  text-align-last: center;
+  margin: 5px;
+  width: inherit;
+  color: #fff;
+}
+
+.button-view:hover {
+  border: 1px solid #8ce196;
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}

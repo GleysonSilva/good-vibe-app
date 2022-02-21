@@ -5,7 +5,7 @@ import "./style.css";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Number({ check, onCheck }) {
+export default function Number({}) {
   const [number, setnumber] = useState(0);
   const [open, setopen] = useState(false);
   const [text, setText] = useState("");
@@ -25,15 +25,6 @@ export default function Number({ check, onCheck }) {
 
   return (
     <div className="row justify-content-center">
-      <div className="col-12 col-md-6 card-center">
-        <input
-          id="switch-flat"
-          // type="checkbox"
-          className="input-view"
-          value={check}
-          onClick={(e) => onCheck(!check)}
-        />
-      </div>
       {number % 2 === 0 ? (
         <span
           id="title"

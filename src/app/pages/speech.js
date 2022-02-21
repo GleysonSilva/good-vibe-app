@@ -8,16 +8,14 @@ import {
   faEraser,
   faVolumeLow,
   faVolumeHigh,
-  faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Card from "../components/CardMusic";
 // import CardText from "@material-ui/core/Card";
 
 //import styles
 import "./style.css";
 
-export default function CompontensAPP({ check, onCheck }) {
+export default function CompomentSpeech({}) {
   const [text, setText] = useState(null);
   const [rate, setRate] = useState(0.9);
   const [number, setNumber] = useState(0);
@@ -68,19 +66,6 @@ export default function CompontensAPP({ check, onCheck }) {
 
   return (
     <div className="col-12 col-md-6 card-center">
-      <input
-        id="switch-flat"
-        // type="checkbox"
-        className="input-view"
-        value={check}
-        onClick={(e) => onCheck(!check)}
-      />
-
-      <div className="row my-3">
-        <h5>Musica Fundo</h5>
-      </div>
-
-      <Card />
       {/* <p>Repedições: {number}</p> 
        <div className="row my-3">
         <h5>Gravador</h5>
