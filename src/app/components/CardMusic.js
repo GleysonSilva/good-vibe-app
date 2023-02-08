@@ -93,7 +93,7 @@ export default function CardMusic() {
                 onClick={() => {
                   audioSB1.pause();
                 }}
-              />{" "}
+              />
             </IconButton>
           </div>
         </div>
