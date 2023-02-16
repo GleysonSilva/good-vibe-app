@@ -13,7 +13,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function App() {
   const theme = createMuiTheme({
     palette: {
-      // type: "dark",
       Background: "#000",
       primary: {
         main: "#101010",
