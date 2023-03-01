@@ -2,6 +2,7 @@
   "name": "good-vibe",
   "version": "0.1.0",
   "private": true,
+  "homepage": "github-page/",
   "dependencies": {
     "@babel/helper-environment-visitor": "^7.16.7",
     "@fortawesome/fontawesome-svg-core": "^1.3.0-beta3",
